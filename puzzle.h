@@ -46,7 +46,14 @@ struct Puzzle
                 occurs[cur_element] = true;
             }
         }
-        return ((n_inversion + (n_rows() - 1 - epsilon_row)) % 2) == 0;
+        if (n_cols() % 2 == 1)
+        {
+            return (n_inversion % 2) == 0;
+        }
+        else
+        {
+            return ((n_inversion + (n_rows() - 1 - epsilon_row)) % 2) == 0;
+        }
     }
 
     // 最优解下界
